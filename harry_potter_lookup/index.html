@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Harry Potter Lookup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #first_name, select{
+            padding: 5px;
+            width: 250px;
+        }
+        #submit{
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <h1>Enter a Harry Potter Character name :</h1>
+        <br>
+        <input type="text" id="first_name" name="first_name">
+        <br>
+        <br>
+        <select id="user_select">
+            <option value="Please select a value" disabled="disabled" selected="selected">(Please select a value)</option>
+            <option value="likes">Likes</option>
+            <option value="dislikes">Dislikes</option>
+        </select>
+        <br>
+        <br>
+        <button id="submit">Submit</button>
+        <br>
+        <h3 id="character_name"></h3>
+        <h4 id="character_prop"></h4>
+    </div>
+
+    <script>
+        let characters = [
+            {
+                "firstName": "Harry",
+                "lastName": "Potter",
+                "likes": ["Hogwarts", "Magic", "Hagrid"],
+                "dislikes": ["Voldemort", "Moaning Myrtle", "Dementors"],
+            },
+            {
+                "firstName": "Ron",
+                "lastName": "Weasley",
+                "likes": ["Food", "Hermione", "Recklessness"],
+                "dislikes": ["Spiders", "Prov. Snape", "Studying"],
+            },
+            {
+                "firstName": "Hermione",
+                "lastName": "Granger",
+                "likes": ["Reading", "Potions", "Studying"],
+                "dislikes": ["Monsters", "Prov. Snape", "Scampers"],
+            },
+            {
+                "firstName": "Draco",
+                "lastName": "Malfoy",
+                "likes": ["Bullying", "Lord Voldemont", "Harry Potter"],
+                "dislikes": ["Harry", "Losing", "Authority"],
+            }
+        ];
+        document.getElementById("submit").addEventListener('click', lookUp);
+        
+        function lookUp(firstName, prop){
+            firstName = document.getElementById('first_name').value;
+            prop = document.getElementById("user_select").value;   
+            if (prop == "Please select a value"){
+                character_prop.innerHTML = "Please select a property";
+                character_prop.style.color = "red";
+            }
+            
+            else{
+                let character_name = document.getElementById("character_name");       
+                let character_prop = document.getElementById("character_prop");       
+                for (let i = 0; i < characters.length; i++){
+                    if (characters[i].firstName === firstName){
+                        if (characters[i].hasOwnProperty(prop)){
+                            character_name.innerHTML = characters[i].firstName + " " + characters[i].lastName;
+                            character_prop.innerHTML = characters[i][prop];
+                            character_prop.style.color = "black";
+                            
+                        }
+                        else {
+                            character_prop.innerHTML = "No such property";
+                        }
+                    }
+                }
+                return "No such character";
+            }
+        }
+    </script>
+
+</body>
+</html>
+© Sheldon Orgill

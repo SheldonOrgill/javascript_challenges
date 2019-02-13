@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Golf Challenge</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+    <div id="container"><center>
+
+        <input type="text" id="golf_par" name="golf_par" placeholder="par value">
+        <input type="text" id="golf_stroke" name="golf_stroke" placeholder="stroke value">
+        <br>
+        <br>
+        <button id="submit">Submit</button>
+        <h3 id="the_output"></h3>
+
+    </div></center>
+
+    <script>
+        document.getElementById("submit").addEventListener("click", golfScore);
+        function golfScore(par, strokes) {
+            strokes = document.getElementById("golf_stroke").value;
+            par = document.getElementById("golf_par").value;
+            let the_text = document.getElementById("the_output");
+            if (strokes == 1){
+                console.log("Hole-in-one");
+                the_text.innerHTML = "Hole-in-one";
+            } else if (strokes <= par -2){
+                console.log("Eagle");
+                the_text.innerHTML = "Eagle";
+            } else if (strokes == par -1) {
+                console.log("Birdie");
+                the_text.innerHTML = "Birdie";
+            } else if (strokes == par) {
+                console.log("Par");
+                the_text.innerHTML = "Par";
+            } else if (strokes == par +1) {
+                console.log("Bogey");
+                the_text.innerHTML = "Bogey";
+            } else if (strokes == par +2) {
+                console.log("Double Bogey");
+                the_text.innerHTML = "Double Bogey";
+            } else {
+                console.log("Go Home!");
+                the_text.innerHTML = "Go Home!";
+            }
+        }
+    </script>
+
+</body>
+</html>

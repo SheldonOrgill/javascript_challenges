@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>dance for your money</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        input{
+            padding: 10px;
+            outline: none;
+            border: none;
+            background: #cecece;
+        }
+        button{
+            padding: 8px;
+            outline: none;
+            border: none;
+            background: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+
+        <h1>Check Data Type: </h1>
+
+        <input id="data_type" name="data_type" placeholder="Enter a Data type">
+
+        <br>
+        <br>
+
+        <button id="show_data_type">Show Data Type</button>
+
+        <br>
+        <br>
+
+        <p id="data_text"></p>
+
+    </div>
+
+    <script>
+        document.getElementById("show_data_type").addEventListener('click', showDataType);
+        function showDataType() {
+            let dataType = document.getElementById("data_type").value;
+            let dataText = document.getElementById("data_text");
+            if (dataType != ""){
+                if (dataType.charAt(0) == '\"' && dataType.charAt(dataType.length-1) == '\"'){
+                dataText.innerHTML = "string";
+                }
+                else if (dataType.charAt(0) == '\'' && dataType.charAt(dataType.length-1) == '\''){
+                    dataText.innerHTML = "string";
+                }
+                else if (dataType.charAt(0) == '\[' && dataType.charAt(dataType.length-1) == '\]'){
+                    dataText.innerHTML = "array";
+                }
+                else if (dataType.charAt(0) == '\{' && dataType.charAt(dataType.length-1) == '\}'){
+                    dataText.innerHTML = "object";
+                }
+                else if (dataType == "null"){
+                    dataText.innerHTML = "null";
+                }
+                else if (dataType == "true" || dataType == "false"){
+                    dataText.innerHTML = "boolean";
+                }
+                else if (dataType.includes(":") || dataType.includes("-") || dataType.includes("/")){
+                    dataText.innerHTML = "date";
+                }
+                else{
+                    dataText.innerHTML = "number";
+                }
+            }
+            else{
+                alert("Please enter a valid input");
+            }
+            
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Character Count</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+<body>
+    
+    <center>
+
+        <div id="container">
+
+            <h1>Character Count</h1>
+            <br>
+            <br>
+
+            <textarea id="text_area" rows="15" cols="80" placeholder="Enter your text here ..."></textarea>
+            <br>
+            <br>
+            <p>Character count: <span id="char_count_text"></span></p>
+            <p>Space count: <span id="space_count_text"></span></p>
+            <p>Word count: <span id="word_count_text"></span></p>
+            <p>Sentence count: <span id="sentence_count_text"></span></p>
+            <p>Paragraph count: <span id="paragraph_count_text"></span></p>
+
+        </div>
+
+    </center>
+
+    <script>
+        
+        let text_area = document.getElementById("text_area");
+        text_area.addEventListener("keyup", checkInput)
+        function checkInput() {
+            let character = document.getElementById("text_area").value;
+            let char_count_text = document.getElementById("char_count_text");
+            let space_count_text = document.getElementById("space_count_text");
+            let word_count_text = document.getElementById("word_count_text");
+            let sentence_count_text = document.getElementById("sentence_count_text");
+            let paragraph_count_text = document.getElementById("paragraph_count_text");
+            
+            if (character == 0){
+                char_count_text.innerHTML = 0;
+                char_count_text.style.color = "black";
+                
+                space_count_text.innerHTML = 0;
+                space_count_text.style.color = "black";
+                word_count_text.innerHTML = 0;
+                word_count_text.style.color = "black";
+                sentence_count_text.innerHTML = 0;
+                sentence_count_text.style.color = "black";
+                paragraph_count_text.innerHTML = 0;
+                paragraph_count_text.style.color = "black";
+            }
+            else{
+                char_count_text.innerHTML = character.length;
+                char_count_text.style.color = "blue";
+                let space_count = character.split(" ").length -1;
+                space_count_text.innerHTML = space_count;
+                space_count_text.style.color = "blue";
+                
+                let wordCount = character.trim().replace(/\s+/gi, ' ').split(' ').length;
+                word_count_text.innerHTML = wordCount;
+                word_count_text.style.color = "blue";
+                let sentence_count = character.split(/[.|!|?]+/g).length -1;
+                sentence_count_text.innerHTML = sentence_count;
+                sentence_count_text.style.color = "blue";
+                let paragraph_count = character.replace(/\n$/gm, '').split(/\n/).length;
+                paragraph_count_text.innerHTML = paragraph_count;
+                paragraph_count_text.style.color = "blue";
+            }
+        }
+        char_count_text.innerHTML = 0;
+        space_count_text.innerHTML = 0;
+        word_count_text.innerHTML = 0;
+        sentence_count_text.innerHTML = 0;
+        paragraph_count_text.innerHTML = 0;
+    </script>
+
+</body>
+</html>

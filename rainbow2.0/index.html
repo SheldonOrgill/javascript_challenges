@@ -1,0 +1,88 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rainbow 2.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body id="theBody">
+
+    <!-- Instructions header -->
+    <h4>Click the Name to see the Color</h4>
+
+    <!--Color divs -->
+    <div id="red" onclick="changeRed()">RED</div>
+    <div id="orange" onclick="changeOrange()">ORANGE</div>
+    <div id="yellow" onclick="changeYellow()">YELLOW</div>
+    <div id="green" onclick="changeGreen()">GREEN</div>
+    <div id="blue" onclick="changeBlue()">BLUE</div>
+    <div id="purple" onclick="changePurple()">PURPLE</div>
+    <div id="violet" onclick="changeViolet()">VIOLET</div>
+    <br>
+    <button onclick="changeAll()">Show All Colors</button>
+    
+    <!-- This is the JavaScript Code -->
+    <script>
+        //Changes the body contents
+        let myBody = document.getElementById("theBody");
+        myBody.style.textAlign = "left";
+        myBody.style.fontSize = "2em";
+        myBody.style.margin = "5px";
+        //My Array
+        let myRainbowColors = ["red", "orange", "yellow", "green", "blue", "purple", "violet"]
+        // This function changes the div from white to red and adds 10px padding
+        function changeRed() {
+            let colorRed = document.getElementById("red");
+            colorRed.style.backgroundColor = "red";
+            colorRed.style.padding = "10px";
+        }
+        // This function changes the div from white to orange and adds 10px padding
+        function changeOrange() {
+            let colorOrange = document.getElementById("orange");
+            colorOrange.style.backgroundColor = "orange";
+            colorOrange.style.padding = "10px";
+        }
+        // This function changes the div from white to yellow and adds 10px padding
+        function changeYellow() {
+            let colorYellow = document.getElementById("yellow");
+            colorYellow.style.backgroundColor = "yellow";
+            colorYellow.style.padding = "10px";
+        }
+        // This function changes the div from white to green and adds 10px padding
+        function changeGreen() {
+            let colorGreen = document.getElementById("green");
+            colorGreen.style.backgroundColor = "green";
+            colorGreen.style.padding = "10px";
+        }
+        // This function changes the div from white to blue and adds 10px padding
+        function changeBlue() {
+            let colorBlue = document.getElementById("blue");
+            colorBlue.style.backgroundColor = "blue";
+            colorBlue.style.padding = "10px";
+        }
+        // This function changes the div from white to purple and adds 10px padding
+        function changePurple() {
+            let colorPurple = document.getElementById("purple");
+            colorPurple.style.backgroundColor = "purple";
+            colorPurple.style.padding = "10px";
+        }
+        // This function changes the div from white to pink and adds 10px padding
+        function changeViolet() {
+            let colorViolet = document.getElementById("violet");
+            colorViolet.style.backgroundColor = "violet";
+            colorViolet.style.padding = "10px";
+        }
+        // This function changes all the div colors (i.e it runs all the functions within it)
+        function changeAll() {
+            changeRed();
+            changeOrange();
+            changeYellow();
+            changeGreen();
+            changeBlue();
+            changePurple();
+            changeViolet();
+        }
+    </script>
+
+

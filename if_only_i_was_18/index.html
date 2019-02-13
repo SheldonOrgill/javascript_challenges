@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Age Restriction</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+    <div id="container">
+
+        <div id="theForm">
+
+            <h1>Enter your age to check if you are old enough to drive</h1>
+            <br>
+            <center><form id="myForm">
+                <input type="text" id="userAge" name="uAge" placeholder="How old are you?">
+                <br>
+                <br>   
+            </form>
+            <button onclick="checkAge()">Check Age</button></center>
+            <br>
+            <h3 id="comment"></h3>
+        </div>
+
+    </div>
+
+    <script>
+        function checkAge() {
+        let userAge = document.forms["myForm"]["uAge"].value;
+        let theComment = document.getElementById("comment");
+        if (userAge >= 18){
+            theComment.innerHTML = "You are old enough drive";
+            theComment.style.backgroundColor = "green";
+        }
+        else if (userAge == "" || userAge == "null"){
+            theComment.innerHTML = "Please enter a valid age";
+            theComment.style.backgroundColor = "black";
+        }
+        else{
+            theComment.innerHTML = "You are not old enough drive";
+            theComment.style.backgroundColor = "red";
+        }
+    }   
+    </script>
+
+</body>
+</html>

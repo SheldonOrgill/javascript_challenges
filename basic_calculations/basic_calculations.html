@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+    <div id="container">
+
+        <h2>Click a button to do the math:</h2>
+        <br>
+        <!-- When the button is click, the function inside runs -->
+        <button onclick="add()">+</button>
+        <button onclick="subtract()">-</button>
+        <button onclick="multi()">x</button>
+        <button onclick="divide()">/</button>
+
+        <h4 id="answer"></h4>
+
+    </div>
+
+    <script>  
+        // This is the function that adds the values
+        function add(a,b){
+            a = 25;
+            b = 5;  
+            let answerText = document.getElementById("answer");
+            let theAnswer = (+a) + (+b);
+            // If the value is a number, continue
+            if (Number.isInteger(a & b)){
+                console.log(theAnswer);
+                answerText.innerHTML = theAnswer;
+            }
+            else{
+                answerText.innerHTML = "Values are not numbers";
+            }
+        }
+        // This is the function that subtracts the values
+        function subtract(a,b){
+            a = 25;
+            b = 5;  
+            let answerText = document.getElementById("answer");
+            let theAnswer = (+a) - (+b);
+            // If the value is a number, continue
+            if (Number.isInteger(a & b)){
+                console.log(theAnswer);
+                answerText.innerHTML = theAnswer;
+            }
+            else{
+                answerText.innerHTML = "Values are not numbers";
+            }
+        }
+        // This is the function that multiplies the values
+        function multi(a,b){
+            a = 25;
+            b = 5;  
+            let answerText = document.getElementById("answer");
+            let theAnswer = (+a) * (+b);
+            // If the value is a number, continue
+            if (Number.isInteger(a & b)){
+                console.log(theAnswer);
+                answerText.innerHTML = theAnswer;
+            }
+            else{
+                answerText.innerHTML = "Values are not numbers";
+            }
+        }
+        // This is the function that divides the values
+        function divide(a,b){
+            a = 25;
+            b = 5;  
+            let answerText = document.getElementById("answer");
+            let theAnswer = (+a) / (+b);
+            // If the value is a number, continue
+            if (Number.isInteger(a & b)){
+                console.log(theAnswer);
+                answerText.innerHTML = theAnswer;
+            }
+            else{
+                answerText.innerHTML = "Values are not numbers";
+            }
+        }
+       
+    </script>
+
+</body>
+</html>
